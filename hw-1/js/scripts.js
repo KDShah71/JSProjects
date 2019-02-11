@@ -6,14 +6,17 @@ function initAll(){
     document.getElementById('btn-1').onclick = nameHandler;
 }
 
-function clickHandler() {
-    if(confirm("Do you want to proceed to script.html?")) {
+function clickHandler(event) {
+    if(confirm("Do you want to proceed to script.html?")
+    ) {
         alert("You said yes");
+        return true;
     }else{
         alert("You said no");
+        event.preventDefault();
+        return false;
     }
-    window.location= 'script.html';
-    return false;
+    
 };
 
 function nameHandler() {
@@ -21,7 +24,3 @@ function nameHandler() {
     document.querySelector('#welcome-card').innerHTML ='Welcome ' + ans;
     return true;
 };
-
-
-
-// document.querySelector('#welcome-card').InnerHTML = '<h1>' + name '</h1>';
